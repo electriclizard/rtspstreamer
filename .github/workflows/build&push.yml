@@ -4,26 +4,8 @@ on:
   push:
     branches:
       - main
-      
-jobs:
-  run_tests:
-    # Первую джобу смело можем копипастить из экшена для тестирования
-    runs-on: [ubuntu-latest]
-    steps:
-      # Чекаутим код
-      - uses: actions/checkout@master
-      # Устанавливаем python нужной версии
-      - uses: actions/setup-python@v1
-        with:
-          python-version: '3.8'
-          architecture: 'x64'
-      - name: Install requirements
-        # Устанавливаем зависимости
-        run: pip install -r requirements.txt
-      - name: Run tests
-        # Запускаем тесты
-        run: pytest
 
+jobs:
   build_and_pub:
     # Если тесты были пройдены успешно
     needs: [run_tests]

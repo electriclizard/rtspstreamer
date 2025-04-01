@@ -8,4 +8,4 @@ RUN ./build.sh
 
 ENV RTSP_OUT_PORT=8554
 
-CMD -O /rtspstreamer/input.mp4 $VIDEO_URL && ./rtspstreamer -i file:///rtspstreamer/input.mp4 -p $RTSP_OUT_PORT
+CMD ./rtspstreamer -i file:///rtspstreamer/input.mp4 -p $RTSP_OUT_PORT
